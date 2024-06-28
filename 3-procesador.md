@@ -10,6 +10,11 @@ Asignar núcleos de CPU específicos:
 ```
 
 **¿Como saber el numero de procesadores virtuales que tiene una máquina?**
+```
+wmic cpu get NumberOfCores,NumberOfLogicalProcessors
+```
+
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/52f42964-52a7-4fbf-a565-07b0989b06f5)
 
 ### Para crear y ejecutar los siguientes contenedores usar la imagen de nginx:alpine
 
