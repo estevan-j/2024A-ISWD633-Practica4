@@ -70,8 +70,12 @@ Define un período de gracia inicial durante el cual los fallos del Healthcheck 
 ```
 
 ### Para crear y ejecutar los siguientes contenedores usar la imagen de nginx:alpine
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/6b4663a1-3a02-48b4-b2b8-bcae45d1d1a2)
+
 ### Ejecutar un contenedor con un healthcheck que valide que el contenedor está funcionando
+
 
 ```
 docker run -d --name server-nginx --health-cmd="curl http://localhost" --health-interval=3s --health-start-period=5s --health-retries=3 --health-timeout=10s nginx:alpine
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/6754f74c-8be5-430b-8c8f-a2b1cdb13d74)
