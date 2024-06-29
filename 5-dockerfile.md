@@ -51,17 +51,20 @@ La opción -t se utiliza para etiquetar la imagen que se está construyendo con 
  
 ### Ejecutar el archivo Dockerfile y construir una imagen en la versión 1.0
 ```
-
+docker build -t centos7img:1 .
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/3c027ae1-7bd0-4ec5-b9a1-16e9b8fe2181)
 
 **¿Cuántos pasos se han ejecutado?**
 
++ Cuatro pasos
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/090f815f-5b75-4bf5-9d8e-153c8ec756b5)
 
 **Modificar el archivo index.html para incluir su nombre**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
-
++ Se ejecutaron dos pasos y no se observa cambios
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
 
@@ -72,29 +75,35 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
-
+docker run -P -d --name  my-server centos1:1.0.
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/a457e75f-4278-4572-9f01-ac3855bb2cb7)
 
 ### ¿Con que puerto host se está realizando el mapeo?
 # COMPLETAR CON LA RESPUESTA
-
+____
++ Puerto 32769
 **¿Qué es una imagen huérfana?**
 # COMPLETAR CON LA RESPUESTA
-
+____
+También conocida como dangling image, es una imagen que ya no tiene una etiqueta asociada y no está referenciada por ningún contenedor. Estas imágenes suelen ser residuos de procesos de construcción de imágenes o actualizaciones y, aunque no se usan activamente, ocupan espacio en el sistema.
 ### Identificar imágenes huérfanas
 ```
-
+docker images -f dangling=true 
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/013c247f-a949-4752-b65f-70f758c3d3a3)
 
 ### Listar los IDS de las imágenes huérfanas
 ```
-
+docker images -f dangling=true ls
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/23cfc848-1bf2-4a64-bdeb-62efbad7697c)
 
 ### Eliminar imágenes huérfanas
 ```
-
+docker image prune -f
 ```
+![image](https://github.com/estevan-j/2024A-ISWD633-Practica4/assets/94009206/20d3d8bc-1e4f-475f-8e36-117e668c91f7)
 
 ### Ejecutar un archivo Dockerfile que tiene otro nombre
 ```
